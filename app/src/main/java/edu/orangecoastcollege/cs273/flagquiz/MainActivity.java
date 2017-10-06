@@ -192,6 +192,8 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
+                // COMPLETED: Nested in this decision, if the user has completed all 10 questions, show an AlertDialog
+                // COMPLETED: with the statistics and an option to Reset Quiz
                 // Reset Quiz
                 // Show an AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -209,22 +211,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else
-        {
+        {   // COMPLETED: Else, the answer is incorrect, so display "Incorrect Guess!" in red
+            // COMPLETED: and disable just the incorrect button.
             clickedButton.setEnabled(false);
             mAnswerTextView.setText(getString(R.string.incorrect_answer));
             mAnswerTextView.setTextColor(ContextCompat.getColor(this, R.color.incorrect_answer));
         }
-
-
-        // TODO: Nested in this decision, if the user has completed all 10 questions, show an AlertDialog
-        // TODO: with the statistics and an option to Reset Quiz
-
-        // TODO: Else, the answer is incorrect, so display "Incorrect Guess!" in red
-        // TODO: and disable just the incorrect button.
-
-
-
     }
-
-
 }
