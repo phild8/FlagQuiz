@@ -9,7 +9,15 @@
         android:summary="@string/number_of_choices_description"
         android:persistent="true"
         android:defaultValue="4"
+        />
 
-
+    <ListPreference
+        android:entries="@array/regions_list_for_settings"
+        android:entryValues="@array/regions_list"
+        android:key="pref_regions"
+        android:title="@string/world_regions"
+        android:summary="@string/world_regions_description"
+        android:persistent="true"
+        android:defaultValue="All"
         />
 </PreferenceScreen>
