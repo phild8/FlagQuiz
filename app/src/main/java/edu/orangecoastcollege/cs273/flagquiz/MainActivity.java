@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int FLAGS_IN_QUIZ = 10;
 
-    private Button[] mButtons = new Button[4];
+    private Button[] mButtons = new Button[8];
+    private LinearLayout[] mLayouts = new LinearLayout[4]; // So you can hide the layouts
     private List<Country> mAllCountriesList;  // all the countries loaded from JSON
     private List<Country> mQuizCountriesList; // countries in current quiz (just 10 of them)
     private Country mCorrectCountry; // correct country for the current question
@@ -42,7 +44,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView mQuestionNumberTextView; // shows current question #
     private ImageView mFlagImageView; // displays a flag
     private TextView mAnswerTextView; // displays correct answer
-    // private TextView mGuessCountryTextView;
+
+    private int mChoices; // Stores how many choices (buttons) selected
+
+    // Keys used in preferences.xml
+    private static final String CHOICES = "pref_numberOfChoices";
+    private static final String REGIONS = "pref_regions";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
         mButtons[1] = (Button) findViewById(R.id.button2);
         mButtons[2] = (Button) findViewById(R.id.button3);
         mButtons[3] = (Button) findViewById(R.id.button4);
+        mButtons[4] = (Button) findViewById(R.id.button5);
+        mButtons[5] = (Button) findViewById(R.id.button6);
+        mButtons[6] = (Button) findViewById(R.id.button7);
+        mButtons[7] = (Button) findViewById(R.id.button8);
+
+        mLayouts[0] = (LinearLayout) findViewById(R.id.row1LinearLayout);
+        mLayouts[1] = (LinearLayout) findViewById(R.id.row2LinearLayout);
+        mLayouts[2] = (LinearLayout) findViewById(R.id.row3LinearLayout);
+        mLayouts[3] = (LinearLayout) findViewById(R.id.row4LinearLayout);
 
         // COMPLETED: Set mQuestionNumberTextView's text to the appropriate strings.xml resource
         mQuestionNumberTextView.setText(getString(R.string.question, 1,FLAGS_IN_QUIZ));
