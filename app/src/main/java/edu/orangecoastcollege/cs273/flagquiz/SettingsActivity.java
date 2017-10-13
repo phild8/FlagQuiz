@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    /**
+     * Loads the saved preferences fragment to what the user has selected.
+     * @param savedInstanceState The filtered list the user has selected.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Loads the setting activity fragment.
+     */
     public static class SettingsActivityFragment extends PreferenceFragment {
 
         @Override

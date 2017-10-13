@@ -56,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String CHOICES = "pref_numberOfChoices";
     private static final String REGIONS = "pref_regions";
 
+    /**
+     * Loads the created quiz on the screen. Will show incorrect and correct button clicks.
+     * Shows the countries flag. Offers a setting button which allows the users to filter between
+     * different regions and how many buttons are displayed on the screen.
+     * @param savedInstanceState Loads the saved instance from the fragment class.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -164,25 +170,25 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "ERROR loading image: " + mCorrectCountry.getFileName(), e);
         }
 
-        // TODO: Get an InputStream to the asset representing the next flag
-        // TODO: and try to use the InputStream to create a Drawable
-        // TODO: The file name can be retrieved from the correct country's file name.
-        // TODO: Set the image drawable to the correct flag.
+        // COMPLETED: Get an InputStream to the asset representing the next flag
+        // COMPLETED: and try to use the InputStream to create a Drawable
+        // COMPLETED: The file name can be retrieved from the correct country's file name.
+        // COMPLETED: Set the image drawable to the correct flag.
 
-        // TODO: Shuffle the order of all the countries (use Collections.shuffle)
+        // COMPLETED: Shuffle the order of all the countries (use Collections.shuffle)
         do {
             Collections.shuffle(mFilteredCountriesList);
         } while (mFilteredCountriesList.subList(0, mChoices).contains(mCorrectCountry));
 
-        // TODO: Loop through all 4 buttons, enable them all and set them to the first 4 countries
-        // TODO: in the all countries list
+        // COMPLETED: Loop through all 4 buttons, enable them all and set them to the first 4 countries
+        // COMPLETED: in the all countries list
         for (int i = 0; i < mChoices; ++i)
         {
             mButtons[i].setEnabled(true);
             mButtons[i].setText(mFilteredCountriesList.get(i).getName());
         }
 
-        // TODO: After the loop, randomly replace one of the 4 buttons with the name of the correct country
+        // COMPLETED: After the loop, randomly replace one of the 4 buttons with the name of the correct country
         mButtons[rng.nextInt(mChoices)].setText(mCorrectCountry.getName());
 
     }
